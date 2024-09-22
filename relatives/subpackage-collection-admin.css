@@ -1,0 +1,6 @@
+/* admin css */
+#starter-plugin-wrapper footer,
+#starter-plugin-wrapper header{
+    background: cornsilk;
+    max-width: 99.2%;
+}

@@ -1,0 +1,41 @@
+/* admin css */
+.title-suffix-after{
+    background: cornsilk;
+    font-size:smaller;
+}
+.custom-post-type-wrapper{
+    padding: 0;
+    margin: 0;
+    border-bottom: thin solid darkgray;
+    width: 100%;
+    margin-top: .5em;
+}
+.custom-post-type-item{   
+    display: flex; 
+    flex-wrap: wrap;
+    flex-direction:row;
+} 
+.left-thing-content{
+    width: 50%;
+    background-color: #fafaf9;
+    text-align: left;
+    padding: 0 3% 0 3%;
+    height: 320px;
+}
+.right-thing-content{
+    width: 50%;
+    background: url(http://classicpress-themes.com/wp-content/uploads/2024/09/what-the-hex.png);
+    height: 320px;
+}
+.right-thing-content figure img {
+    max-height: 305px;
+    margin: 0 auto 0 3em;
+}
+.td-link-btn{
+    background: #eff;
+    padding: 3px 6px;
+    border: thin solid #da8;
+    width: auto;
+    white-space: normal;
+    display: inline-block;
+}
