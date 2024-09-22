@@ -90,18 +90,18 @@ final class Subpackage_Collection {
 	 * @since   1.0.0
 	 */
 	public function __construct () {
-		$this->token       = 'starter-plugin';
+		$this->token       = 'subpackage-collection';
 		$this->plugin_url  = plugin_dir_url( __FILE__ );
 		$this->plugin_path = plugin_dir_path( __FILE__ );
 		$this->version     = '1.0.0';
 
 		// Admin - Start
 		require_once 'class-subpackage-collection-settings.php';
-			$this->settings = Starter_Plugin_Settings::instance();
+			$this->settings = Subackage_Collection_Settings::instance();
 
 		if ( is_admin() ) {
 			require_once 'class-subpackage-collection-admin.php';
-			$this->admin = Starter_Plugin_Admin::instance();
+			$this->admin = Subackage_Collection_Admin::instance();
 		}
 		// Admin - End
 
@@ -111,7 +111,7 @@ final class Subpackage_Collection {
 		// Post Types - End
 		
 		// Register an example post type. To register other post types, duplicate this line.
-		$this->post_types['collection'] = new Starter_Plugin_Post_Type( 'collection', __( 'Collection', 'starter-plugin' ), 
+		$this->post_types['collection'] = new Subackage_Collection_Post_Type( 'collection', __( 'Collection', 'subpackage-collection' ), 
 			__( 'Collection', 'subpackage-collection' ), array( 'menu_icon' => 'dashicons-carrot' ) );
 		// Post Types - End
 
