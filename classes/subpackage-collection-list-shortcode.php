@@ -61,7 +61,7 @@ if ( ! class_exists( 'Subpackage_Collection_List_Shortcode' ) ) {
             $collections = get_posts( $args );
 
             if ( $collections ) {
-                return Subpackage_Collection_List_Common::display_collections( 
+                return Subpackage_Collection_List_Shortcode::display_collections( 
                     $collections, $layout, $atts 
                 );
             }

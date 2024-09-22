@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package	Subpackage_Collection
  * @author Jeffikus
  */
-final class Subpackage_Collection_Public {
+class Subpackage_Collection_Public {
 	/**
 	 * Subpackage_Collection_Public The single instance of Subpackage_Collection_Public.
 	 * @var 	object

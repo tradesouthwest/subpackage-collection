@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @version	1.0.0
  * @since 1.0.0
  * @package	Subpackage_Collection
- * @author Jeffikus
+ * @author TSW
  */
-final class Subpackage_Collection_Settings {
+class Subpackage_Collection_Settings {
 	/**
 	 * Subpackage_Collection_Admin The single instance of Subpackage_Collection_Admin.
 	 * @var 	object
@@ -30,13 +30,13 @@ final class Subpackage_Collection_Settings {
 	private $has_select;
 
 	/**
-	 * Main Starter_Plugin_Settings Instance
+	 * Main Subpackage_Plugin_Settings Instance
 	 *
-	 * Ensures only one instance of Starter_Plugin_Settings is loaded or can be loaded.
+	 * Ensures only one instance of Subpackage_Plugin_Settings is loaded or can be loaded.
 	 *
 	 * @since 1.0.0
 	 * @static
-	 * @return Main Starter_Plugin_Settings instance
+	 * @return Main Subpackage_Plugin_Settings instance
 	 */
 	public static function instance () {
 		if ( is_null( self::$instance ) ) {
@@ -74,7 +74,7 @@ final class Subpackage_Collection_Settings {
 				$method = 'validate_field_' . $fields[ $k ]['type'];
 
 				if ( ! method_exists( $this, $method ) ) {
-					if ( true === (bool) apply_filters( 'starter_plugin_validate_field_' . $fields[ $k ]['type'] . '_use_default', true ) ) {
+					if ( true === (bool) apply_filters( 'subpackage_collection_validate_field_' . $fields[ $k ]['type'] . '_use_default', true ) ) {
 						$method = 'validate_field_text';
 					} else {
 						$method = '';
@@ -83,10 +83,10 @@ final class Subpackage_Collection_Settings {
 
 				// If we have an internal method for validation, filter and apply it.
 				if ( '' !== $method ) {
-					add_filter( 'starter_plugin_validate_field_' . $fields[ $k ]['type'], array( $this, $method ) );
+					add_filter( 'subpackage_collection_validate_field_' . $fields[ $k ]['type'], array( $this, $method ) );
 				}
 
-				$method_output = apply_filters( 'starter_plugin_validate_field_' . $fields[ $k ]['type'], $v, $fields[ $k ] );
+				$method_output = apply_filters( 'subpackage_collection_validate_field_' . $fields[ $k ]['type'], $v, $fields[ $k ] );
 
 				if ( ! is_wp_error( $method_output ) ) {
 					$input[ $k ] = $method_output;
@@ -198,10 +198,10 @@ final class Subpackage_Collection_Settings {
 		echo $this->$method( $key, $args ); /* phpcs:ignore */
 
 		// Output the description, if the current field allows it.
-		if ( isset( $args['type'] ) && ! in_array( $args['type'], (array) apply_filters( 'starter_plugin_no_description_fields', array( 'checkbox' ) ), true ) ) {
+		if ( isset( $args['type'] ) && ! in_array( $args['type'], (array) apply_filters( 'subpackage_collection_no_description_fields', array( 'checkbox' ) ), true ) ) {
 			if ( isset( $args['description'] ) ) {
 				$description = $args['description'];
-				if ( in_array( $args['type'], (array) apply_filters( 'starter_plugin_new_line_description_fields', array( 'textarea', 'select' ) ), true ) ) {
+				if ( in_array( $args['type'], (array) apply_filters( 'subpackage_collection_new_line_description_fields', array( 'textarea', 'select' ) ), true ) ) {
 					$description = wpautop( $description );
 				}
 				echo '<p class="description">' . wp_kses_post( $description ) . '</p>';
@@ -224,7 +224,7 @@ final class Subpackage_Collection_Settings {
 		// Admin tabs will be created for each section.
 		// Don't forget to add fields for the section in the get_settings_fields() function below
 
-		return (array) apply_filters( 'starter_plugin_settings_sections', $settings_sections );
+		return (array) apply_filters( 'subpackage_collection_settings_sections', $settings_sections );
 	}
 
 	/**
@@ -302,7 +302,7 @@ final class Subpackage_Collection_Settings {
 				break;
 		}
 
-		return (array) apply_filters( 'starter_plugin_settings_fields', $settings_fields );
+		return (array) apply_filters( 'subpackage_collection_settings_fields', $settings_fields );
 	}
 
 	/**
@@ -471,7 +471,7 @@ final class Subpackage_Collection_Settings {
 	 * @return  array Supported field type keys.
 	 */
 	public function get_supported_fields () {
-		return (array) apply_filters( 'starter_plugin_supported_fields', array( 'text', 'checkbox', 'radio', 'textarea', 'select', 'select_taxonomy' ) );
+		return (array) apply_filters( 'subpackage_collection_supported_fields', array( 'text', 'checkbox', 'radio', 'textarea', 'select', 'select_taxonomy' ) );
 	}
 
 	/**

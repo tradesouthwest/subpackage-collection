@@ -112,10 +112,10 @@ class Subpackage_Collection_Post_Type {
 		);
 
 		$single_slug = sanitize_title_with_dashes( $this->singular );
-		$single_slug = apply_filters( 'starter_plugin_single_slug', $single_slug );
+		$single_slug = apply_filters( 'subpackage_collection_single_slug', $single_slug );
 
 		$archive_slug = sanitize_title_with_dashes( $this->plural );
-		$archive_slug = apply_filters( 'starter_plugin_archive_slug', $archive_slug );
+		$archive_slug = apply_filters( 'subpackage_collection_archive_slug', $archive_slug );
 
 		$defaults = array(
 			'labels'             => $labels,

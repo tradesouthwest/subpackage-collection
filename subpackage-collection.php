@@ -3,7 +3,7 @@
  * Plugin Name:  Subpackage Collection
  * Plugin URI:   http://domain.com/starter-plugin/
  * Description:  Pluggin allows for a basic method of organizing and displaying software package.
- * Version:      1.0.0
+ * Version:      1.0.2
  * Author:       Tradesouthwest
  * Author URI:   https://tradesouthwest.com/
  * Requires PHP: 7.4

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package	subpackage-collection
  * @author Tradesouthwest
  */
-final class Subpackage_Collection_Admin {
+class Subpackage_Collection_Admin {
 	/**
 	 * Subpackage_Collection_Admin The single instance of Subpackage_Collection_Admin.
 	 * @var 	object
@@ -69,10 +69,10 @@ final class Subpackage_Collection_Admin {
 	 */
 	public function register_settings_screen () {
 		$this->hook = add_submenu_page( 'options-general.php', 
-							__( 'Collection Settings', 'starter-plugin' ), 
-							__( 'Collection Plugin', 'starter-plugin' ), 
+							__( 'Collection Settings', 'subpackage-collection' ), 
+							__( 'Collection Plugin', 'subpackage-collection' ), 
 							'manage_options', 
-							'starter-plugin', 
+							'subpackage-collection', 
 							array( $this, 'settings_screen' ) 
 						);
 	}
@@ -101,7 +101,7 @@ final class Subpackage_Collection_Admin {
 				<?php
 					settings_fields( 'subpackage-collection-settings-' . $tab );
 					do_settings_sections( 'subpackage-collection-' . $tab );
-					submit_button( __( 'Save Changes', 'starter-plugin' ) );
+					submit_button( __( 'Save Changes', 'subpackage-collection' ) );
 				?>
 			</form>
 		</div><!--/.wrap-->
@@ -267,7 +267,7 @@ final class Subpackage_Collection_Admin {
 					$class .= ' nav-tab-active';
 				}
 
-				$response['content'] .= '<a href="' . wp_nonce_url( admin_url( 'options-general.php?page=starter-plugin&tab=' . sanitize_title_with_dashes( $key ) ), 
+				$response['content'] .= '<a href="' . wp_nonce_url( admin_url( 'options-general.php?page=subpackage-collection&tab=' . sanitize_title_with_dashes( $key ) ), 
 					'subpackage_collection_switch_settings_tab', 'subpackage_collection_switch_settings_tab' ) . '" class="' . esc_attr( $class ) . '">' . esc_html( $value ) . '</a>';
 			}
 		}

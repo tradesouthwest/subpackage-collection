@@ -8,7 +8,7 @@
  * @package	Subpackage_Collection
  * @author Larry
  */
-final class Subpackage_Collection {
+class Subpackage_Collection {
 	/**
 	 * Subpackage_Collection The single instance of Subpackage_Collection.
 	 * @var 	object
@@ -97,11 +97,11 @@ final class Subpackage_Collection {
 
 		// Admin - Start
 		require_once 'class-subpackage-collection-settings.php';
-			$this->settings = Subackage_Collection_Settings::instance();
+			$this->settings = Subpackage_Collection_Settings::instance();
 
 		if ( is_admin() ) {
 			require_once 'class-subpackage-collection-admin.php';
-			$this->admin = Subackage_Collection_Admin::instance();
+			$this->admin = Subpackage_Collection_Admin::instance();
 		}
 		// Admin - End
 
@@ -111,7 +111,7 @@ final class Subpackage_Collection {
 		// Post Types - End
 		
 		// Register an example post type. To register other post types, duplicate this line.
-		$this->post_types['collection'] = new Subackage_Collection_Post_Type( 'collection', __( 'Collection', 'subpackage-collection' ), 
+		$this->post_types['collection'] = new Subpackage_Collection_Post_Type( 'collection', __( 'Collection', 'subpackage-collection' ), 
 			__( 'Collection', 'subpackage-collection' ), array( 'menu_icon' => 'dashicons-carrot' ) );
 		// Post Types - End
 
